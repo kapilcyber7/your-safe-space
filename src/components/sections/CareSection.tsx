@@ -1,11 +1,11 @@
 import { useState } from "react";
 
 const careCards = [
-  { emoji: "🥣", title: "Feed You With My Hands", message: "When you feel weak, I will feed you slowly with my own hands." },
-  { emoji: "💊", title: "Medicine Time", message: "Medicine time, princess. No excuses." },
-  { emoji: "🧠", title: "Head Massage", message: "Close your eyes. I'll press your head gently until you relax." },
-  { emoji: "🤗", title: "Hug Therapy", message: "10 tight hugs every hour prescribed." },
-  { emoji: "😴", title: "Sleep in My Arms", message: "Sleep like my little baby. I'll protect you." },
+  { emoji: "🥣", title: "Feed You With My Hands", message: "When you feel weak, I will feed you slowly with my own hands.", gif: "/gifs/feed-bear.gif" },
+  { emoji: "💊", title: "Medicine Time", message: "Medicine time, princess. No excuses.", gif: "/gifs/medicine-bear.gif" },
+  { emoji: "🧠", title: "Head Massage", message: "Close your eyes. I'll press your head gently until you relax.", gif: "/gifs/massage-bear.gif" },
+  { emoji: "🤗", title: "Hug Therapy", message: "10 tight hugs every hour prescribed.", gif: "/gifs/hug-bear.gif" },
+  { emoji: "😴", title: "Sleep in My Arms", message: "Sleep like my little baby. I'll protect you.", gif: "/gifs/sleep-bear.gif" },
 ];
 
 const CareSection = () => {
@@ -27,7 +27,12 @@ const CareSection = () => {
                 : "bg-card hover:shadow-[0_0_25px_hsl(340_60%_65%/0.2)] hover:scale-105"
               }`}
           >
-            <span className="text-4xl block mb-3">{card.emoji}</span>
+            <img
+              src={card.gif}
+              alt={card.title}
+              className={`w-24 h-24 mx-auto rounded-xl object-cover mb-3 transition-all duration-300 ${activeCard === i ? "w-32 h-32" : ""}`}
+            />
+            <span className="text-2xl block mb-1">{card.emoji}</span>
             <h3 className="font-display font-semibold text-lg text-foreground mb-2">{card.title}</h3>
             <p className={`text-sm text-muted-foreground font-body transition-all duration-300 ${activeCard === i ? "opacity-100 max-h-20" : "opacity-0 max-h-0 overflow-hidden"}`}>
               {card.message}
